@@ -108,9 +108,9 @@ public class Interface {
                     try {
                         opcaoCalculo = ler.nextInt();
                         if (opcaoCalculo == 1) {
-                            System.out.println("Área: " + forma.calculaArea());
+                            System.out.printf("Área: %.2f", forma.calculaArea());
                         } else if (opcaoCalculo == 2) {
-                            System.out.println("Perímetro: " + forma.calculaPerimetro());
+                            System.out.printf("Perímetro: %.2f", forma.calculaPerimetro());
                         } else {
                             System.out.println("Opção inválida.");
                         }
