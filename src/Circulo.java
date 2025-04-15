@@ -1,4 +1,4 @@
-public class Circulo implements FormasGeo{
+class Circulo implements FormasGeo{
     
     private double raio;
     private static final double PI = 3.14159;

@@ -1,8 +1,8 @@
 import java.util.Scanner;
+
 public class Interface {
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
-
         int numeroFormasCalcular, formaSelecionada;
 
         ControleFormasGeometricas controle = new ControleFormasGeometricas();
