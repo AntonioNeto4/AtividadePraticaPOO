@@ -15,7 +15,7 @@ public class Interface {
             if(numeroFormasCalcular <= 0)
                 System.out.println("Número inválido, tente novamente!");
                 continue;
-                
+
             for(int i = 0; i < numeroFormasCalcular; i++){
                 System.out.println("Qual forma você deseja calcular?");
                 System.out.println("1 - Circulo");
@@ -28,7 +28,7 @@ public class Interface {
                     case 1:
                         System.out.println("Digite o raio do círculo: ");
                         double raio = ler.nextDouble();
-                        controle.adicionaForma(new Circulo(raio));
+                        controle.adicionaForma(new adicionarCirculoirculo(raio));
                         break;
                     case 2:
                         System.out.println("Digite a base do retângulo: ");
@@ -46,18 +46,29 @@ public class Interface {
                         break;
                     default:
                         System.out.println("Opção inválida, tente novamente!");
+                
+
+                for(FormaGeo forma : controle.getArray()) {
+                    System.out.println("Calculo do" + controle.exibirForma(forma));
+                    System.out.println("Calcular Área - 1");
+                    System.out.println("Calcular Perímetro - 2");
+                    int opcaoCalculo = ler.nextInt();
+
+                    switch(opcaoCalculo) {
+                        case 1:
+                            System.out.println("Área: " + forma.calcularArea());
+                            break;
+                        case 2:
+                            System.out.println("Perímetro: " + forma.calcularPerimetro());
+                            break;
+                        default:
+                            System.out.println("Opção inválida, tente novamente!");
+                    }
                 }
             }
         }
+
+        ler.close();
     }
 }
 
-private boolean VerificaErro(int valor){
-    try {
-        if(valor <= 0){
-            return false;
-        }
-    } catch (Exception e) {
-        // TODO: handle exception
-    }
-}
