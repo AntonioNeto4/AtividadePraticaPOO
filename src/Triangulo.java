@@ -1,4 +1,3 @@
-
 public class Triangulo implements FormasGeo{
     
     private double lado1;
