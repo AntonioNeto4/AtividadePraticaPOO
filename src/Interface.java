@@ -11,7 +11,7 @@ public class Interface {
         while (true) {
             System.out.println("-----CALCULADORA DE FORMAS GEOMÉTRICAS-----");
 
-            // Lê o número de formas com verificação
+            
             while (true) {
                 System.out.print("Quantas formas serão calculadas? ");
                 try {
@@ -23,15 +23,15 @@ public class Interface {
                     break;
                 } catch (InputMismatchException e) {
                     System.out.println("Entrada inválida. Digite um número inteiro.");
-                    ler.next(); // limpar buffer
+                    ler.next(); 
                 }
             }
 
-            // Loop para cada forma
+        
             for (int i = 0; i < numeroFormasCalcular; i++) {
                 int formaSelecionada = 0;
 
-                // Seleção da forma com verificação
+                
                 while (true) {
                     System.out.println("\nQual forma você deseja calcular?");
                     System.out.println("1 - Círculo");
@@ -51,17 +51,17 @@ public class Interface {
                     }
                 }
 
-                // Coleta dos dados conforme forma selecionada
+                
                 try {
                     switch (formaSelecionada) {
-                        case 1: // Círculo
+                        case 1: 
                             System.out.print("Digite o raio do círculo: ");
                             double raio = ler.nextDouble();
                             if (raio <= 0) throw new IllegalArgumentException("Raio deve ser positivo.");
                             controle.addForma(new Circulo(raio));
                             break;
 
-                        case 2: // Retângulo
+                        case 2: 
                             System.out.print("Digite a base do retângulo: ");
                             double base = ler.nextDouble();
                             System.out.print("Digite a altura do retângulo: ");
@@ -71,7 +71,7 @@ public class Interface {
                             controle.addForma(new Retangulo(base, altura));
                             break;
 
-                        case 3: // Triângulo
+                        case 3: 
                             System.out.print("Digite o lado 1 do triângulo: ");
                             double lado1 = ler.nextDouble();
                             System.out.print("Digite o lado 2 do triângulo: ");
@@ -87,15 +87,15 @@ public class Interface {
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Entrada inválida. Use apenas números válidos.");
-                    ler.next(); // limpar o buffer
-                    i--; // repetir esta iteração
+                    ler.next(); 
+                    i--; 
                 } catch (IllegalArgumentException e) {
                     System.out.println("Erro: " + e.getMessage());
-                    i--; // repetir esta iteração
+                    i--;
                 }
             }
 
-            // Cálculos
+            
             for (FormasGeo forma : controle.getArray()) {
                 System.out.println("\nCálculo da " + controle.exibirForma(forma));
                 int opcaoCalculo = 0;
@@ -122,13 +122,13 @@ public class Interface {
                 }
             }
 
-            break; // encerra a aplicação após uma execução
+            break; 
         }
 
         ler.close();
     }
 
-    // Validação do triângulo
+    
     public static boolean validaTriangulo(double a, double b, double c) {
         return a + b > c && a + c > b && b + c > a;
     }
